@@ -1,0 +1,20 @@
+<div class="login">
+    <form [formGroup]="form" (ngSubmit) = "onSubmit()">
+      <h1>Login</h1>
+      <input
+        type="text"
+        name="userName"
+        placeholder="User Name"
+        required="required"
+        formControlName="userName"
+      />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        required="required"
+        formControlName="password"
+      />
+      <button type="submit">Log in</button>
+    </form>
+  </div>

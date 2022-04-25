@@ -1,0 +1,62 @@
+
+.overflow-y-hidden {
+  overflow-y: hidden !important;
+}
+
+.overflow-y-scroll {
+  height: 77vh !important;
+  overflow-y: auto !important;
+}
+
+.w-99 {
+  width: 95.67% !important;
+}
+
+.m-25 {
+  margin-top: 12% !important;
+  margin-bottom: 25% !important;
+}
+
+.slider {
+  transform: skewX(-30deg);
+  margin-left: -20vw;
+  border-right: 15px solid white;
+}
+.box {
+  width: 75vw;
+  height: 100vh;
+  position: relative;
+  left: 80px;
+
+}
+.arriba {
+  /* skew back by negative of parent’s skew so contents is upright */
+  transform: skewX(30deg);
+  background: #FFFFFF;
+  margin-left: 16vw; /* give margin to push content away from left slanted edge */
+}
+.abajo {
+  background:  #DC143C;
+}
+
+.imagen {
+  width: 3vw;
+  height: 6vh;
+  object-fit: contain;
+}
+
+.bordes-imagen {
+  border-top-right-radius: 50rem;
+  border-bottom-right-radius: 50rem;
+}
+::-webkit-scrollbar {
+  width: 1vw;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}

@@ -1,0 +1,16 @@
+<ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs">
+  <li [ngbNavItem]="1">
+    <a ngbNavLink href="/pokedex">Pokédex</a>
+  </li>
+  <li ngbDropdown class="nav-item">
+    <a href (click)="false" class="nav-link" ngbDropdownToggle>Otras páginas</a>
+    <div ngbDropdownMenu>
+      <button ngbDropdownItem><a class="dropdown-item" href="/pokedex">Pokédex</a></button>
+      <button ngbDropdownItem><a class="dropdown-item" href="/natures">NatureDex</a></button>
+      <button ngbDropdownItem><a class="dropdown-item" href="">Type Calculator</a></button>
+      <div class="dropdown-divider"></div>
+    </div>
+  </li>
+</ul>
+
+<div [ngbNavOutlet]="nav" class="mt-2"></div>

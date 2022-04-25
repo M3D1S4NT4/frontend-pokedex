@@ -1,0 +1,39 @@
+<head>
+  <title>Pokédex</title>
+</head>
+
+<body class="overflow-y-hidden">
+<div class="box rounded-1 abajo w-99 position-absolute overflow-hidden">
+  <br>
+
+  <div class="row">
+
+    <div class="col-5 offset-7 bg-dark text-white text-center fs-3">
+      By Number
+    </div>
+
+    <br>
+
+    <div class="col-3 offset-8 h-75 text-center fs-5 overflow-y-scroll">
+
+      <div class="rounded-3 text-white row">
+        <app-poke-collapse></app-poke-collapse>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="w-75 d-inline-block overflow-hidden slider start-0">
+  <div class="box rounded-1 arriba">
+    <br>
+    <div class="col-11 bg-light mb-5">
+      <app-nav-bar></app-nav-bar>
+    </div>
+    <div>
+      <img class="img-fluid" src="https://img.pokemondb.net/artwork/large/duraludon.jpg">
+    </div>
+  </div>
+</div>
+
+</body>
