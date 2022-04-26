@@ -14,7 +14,6 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NaturesComponent } from './pokedex/natures/natures.component';
-import { PokeFotoComponent } from './pokedex/poke-foto/poke-foto.component';
 
 
 @NgModule({
@@ -27,7 +26,6 @@ import { PokeFotoComponent } from './pokedex/poke-foto/poke-foto.component';
     PokeCollapseComponent,
     NavBarComponent,
     NaturesComponent,
-    PokeFotoComponent
   ],
   imports: [
     BrowserModule,

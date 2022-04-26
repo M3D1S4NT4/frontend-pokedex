@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef} from '@angular/core';
+import { PokeCollapseComponent } from "./poke-collapse/poke-collapse.component";
 
 @Component({
   selector: 'app-pokedex',
@@ -6,14 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
-  localSelected = 'bulbasaur'
+  selected: string = '';
 
-  constructor() { }
+  @ViewChild(PokeCollapseComponent) hijo: any;
+
+  constructor(public changeDetector: ChangeDetectorRef) { }
 
   ngOnInit(): void {
   }
 
-  changeSelected(name: string) {
-    this.localSelected = name;
+  ngAfterViewInit() {
+    this.selected = this.hijo.selected;
   }
 }

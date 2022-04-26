@@ -31,7 +31,8 @@
       <app-nav-bar></app-nav-bar>
     </div>
     <div>
-      <app-poke-foto></app-poke-foto>
+      {{selected}}
+      <img class="img-fluid" src="https://img.pokemondb.net/artwork/large/{{selected.toLowerCase().replace(' ', '-').replace('.', '').replace('\'', '').replace(':', '').replace('é', 'e').replace('é', 'e')}}.jpg">
     </div>
   </div>
 </div>
