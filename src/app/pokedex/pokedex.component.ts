@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokedex.component.css']
 })
 export class PokedexComponent implements OnInit {
+  localSelected = 'bulbasaur'
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeSelected(name: string) {
+    this.localSelected = name;
+  }
 }

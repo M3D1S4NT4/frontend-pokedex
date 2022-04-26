@@ -1,14 +1,14 @@
 
 export interface Pokemon{
-    name: String;
+    name: string;
     number: number;
     type1: Type;
     type2: Type;
-    species: String;
+    species: string;
     possibleAbilities: any[];
     learnset: any[];
-    height: String;
-    weight: String;
+    height: string;
+    weight: string;
     stats: any;
     evolutiveLine: any;
 }

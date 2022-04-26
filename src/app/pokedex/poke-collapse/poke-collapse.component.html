@@ -7,21 +7,22 @@
   }
 </style>
 
-<ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="ngb-panel-0" *ngFor="let pokemon of pokedex">
-  <ngb-panel type="dark">
+<ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="static-1">
+  <ngb-panel type="dark" id="static-{{pokemon.number}}" *ngFor="let pokemon of pokedex">
     <ng-template ngbPanelHeader>
       <img src="https://img.pokemondb.net/sprites/sword-shield/icon/{{pokemon.name.toLowerCase().replace(' ', '-').replace('.', '').replace('\'', '').replace(':', '').replace('é', 'e').replace('é', 'e')}}.png">
       <span class="fs-6 mx-3">Nº {{pokemon.number}} {{pokemon.name}}</span>
-      <button ngbPanelToggle class="btn btn-error">
+      <button ngbPanelToggle class="btn btn-error" (click)="changeNames(pokemon.name)">
         <img class="imagen-pokeball" src="assets/icon.png">
       </button>
     </ng-template>
     <ng-template ngbPanelContent>
       <div class="bg-danger rounded-3 p-4">
         <div class="rounded-3 text-black fs-6 bg-white p-2">
+          Selected: {{selected}}
           <b>Classification: </b> {{pokemon.species}}
           <br>
-          <b>Type (s): </b> {{pokemon.type1}} - {{pokemon.type2}}
+          <b>Type (s): </b> {{pokemon.type1}} // {{pokemon.type2}}
           <br>
           <b>Weight: </b>
           {{pokemon.weight}} kg
@@ -39,13 +40,13 @@
           {{pokemon.possibleAbilities[2]}}
         </div>
         <br>
-        <div class="rounded-3 text-black bg-white p-4">
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[0]" [max]="200">HP: {{pokemon.stats[0]}}</ngb-progressbar></p>
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[1]" [max]="200">Atk: {{pokemon.stats[1]}}</ngb-progressbar></p>
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[2]" [max]="200">Def: {{pokemon.stats[2]}}</ngb-progressbar></p>
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[3]" [max]="200">SpA: {{pokemon.stats[3]}}</ngb-progressbar></p>
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[4]" [max]="200">SpD: {{pokemon.stats[4]}}</ngb-progressbar></p>
-          <p><ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[5]" [max]="200">Spe: {{pokemon.stats[5]}}</ngb-progressbar></p>
+        <div class="rounded-3 text-black bg-white p-4 fs-6">
+          <p>Health: {{pokemon.stats[0]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[0]" [max]="200"></ngb-progressbar></p>
+          <p>Attack: {{pokemon.stats[1]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[1]" [max]="200"></ngb-progressbar></p>
+          <p>Defense: {{pokemon.stats[2]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[2]" [max]="200"></ngb-progressbar></p>
+          <p>Special Attack: {{pokemon.stats[3]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[3]" [max]="200"></ngb-progressbar></p>
+          <p>Special Defense: {{pokemon.stats[4]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[4]" [max]="200"></ngb-progressbar></p>
+          <p>Speed: {{pokemon.stats[5]}}<ngb-progressbar type="danger" textType="black" [value]="pokemon.stats[5]" [max]="200"></ngb-progressbar></p>
         </div>
       </div>
     </ng-template>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 //import {NgbActiveModal, NgbModal} from '../@ng-bootstrap/ng-bootstrap';
 import {Pokemon} from "../pokemon";
 import {PokedexService} from "../pokedex.service";
@@ -11,6 +11,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class PokeCollapseComponent implements OnInit {
   public pokedex: Pokemon[] | undefined;
+  selected = 'bulbasaur';
 
   constructor(private pokedexService: PokedexService){}
 
@@ -29,4 +30,7 @@ export class PokeCollapseComponent implements OnInit {
     );
   }
 
+  public changeNames(name: string) {
+    this.selected = name;
+  }
 }
