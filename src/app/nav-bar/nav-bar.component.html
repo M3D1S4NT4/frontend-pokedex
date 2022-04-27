@@ -1,6 +1,6 @@
 <ul ngbNav #nav="ngbNav" [activeId]="1" class="nav-tabs">
   <li [ngbNavItem]="1">
-    <a ngbNavLink href="/pokedex">Pokédex</a>
+    <button ngbDropdownItem><a class="dropdown-item" href="/pokedex">Pokédex</a></button>
   </li>
   <li ngbDropdown class="nav-item">
     <a href (click)="false" class="nav-link" ngbDropdownToggle>Otras páginas</a>

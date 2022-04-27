@@ -13,6 +13,7 @@ export class TypeCalculatorComponent implements OnInit {
   public typeTable: Map<string, number[]> = new Map<string, number[]>();
   public typeList!: string[] | undefined;
   public damagesRes: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+  public countRes: number[] = [];
   public damages!: number[];
   public damages2!: number[];
   t1 = '1';
@@ -69,6 +70,5 @@ export class TypeCalculatorComponent implements OnInit {
     }
     return this.damagesRes;
   }
-
 
 }

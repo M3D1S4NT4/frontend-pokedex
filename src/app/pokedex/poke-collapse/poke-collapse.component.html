@@ -1,7 +1,7 @@
 <style>
   .imagen-pokeball {
-    width: 2vw !important;
-    height: 2vh !important;
+    width: 3vw !important;
+    height: 3vh !important;
     object-fit: contain !important;
     filter: invert(1) !important;
   }
@@ -10,7 +10,7 @@
 <ngb-accordion #acc="ngbAccordion" [closeOthers]="true" activeIds="static-1">
   <ngb-panel type="dark" id="static-{{pokemon.number}}" *ngFor="let pokemon of pokedex">
     <ng-template ngbPanelHeader>
-      <img src="https://img.pokemondb.net/sprites/sword-shield/icon/{{pokemon.name.toLowerCase().replace(' ', '-').replace('.', '').replace('\'', '').replace(':', '').replace('é', 'e').replace('é', 'e')}}.png">
+      <img class="img-fluid" src="https://img.pokemondb.net/sprites/sword-shield/icon/{{pokemon.name.toLowerCase().replace(' ', '-').replace('.', '').replace('\'', '').replace(':', '').replace('é', 'e').replace('é', 'e')}}.png">
       <span class="fs-6 mx-3">Nº {{pokemon.number}} {{pokemon.name}}</span>
       <button ngbPanelToggle class="btn btn-error" (click)="changeNames(pokemon.name)">
         <img class="imagen-pokeball" src="assets/icon.png">
