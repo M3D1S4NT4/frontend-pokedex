@@ -40,8 +40,9 @@
 }
 
 .imagen {
-  width: 3vw;
-  height: 6vh;
+  width: 50vw;
+  height: 50vh;
+  margin-top: 10vh;
   object-fit: contain;
 }
 

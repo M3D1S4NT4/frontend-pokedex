@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from './pokemon';
-import {Nature} from "./natures/nature";
-import {typeCalculator} from "./type-calculator/typeCalculator"
+import { Nature } from "./natures/nature";
+import { typeCalculator } from "./type-calculator/typeCalculator"
+import { Ability } from "./abilitydex/ability"
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,9 @@ private apiServerUrl= environment.apiBaseUrl;
 
   public getNatures(): Observable<Nature[]> {
     return this.http.get<Nature[]>(`${this.apiServerUrl}/controller/getNatures`)
+  }
+
+  public getAbilities(): Observable<Ability[]> {
+    return this.http.get<Ability[]>(`${this.apiServerUrl}/controller/getAbilities`)
   }
 }

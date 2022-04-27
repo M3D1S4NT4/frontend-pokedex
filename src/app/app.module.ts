@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NaturesComponent } from './pokedex/natures/natures.component';
 import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculator.component';
+import { AbilitydexComponent } from './pokedex/abilitydex/abilitydex.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculat
     NavBarComponent,
     NaturesComponent,
     TypeCalculatorComponent,
+    AbilitydexComponent,
   ],
   imports: [
     BrowserModule,
