@@ -11,7 +11,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class PokeCollapseComponent implements OnInit {
   public pokedex: Pokemon[] | undefined;
-  selected = 'bulbasaur';
+  @Output() selected = new EventEmitter<string>();
 
   constructor(private pokedexService: PokedexService){}
 
@@ -31,6 +31,6 @@ export class PokeCollapseComponent implements OnInit {
   }
 
   public changeNames(name: string) {
-    this.selected = name;
+    this.selected.emit(name);
   }
 }

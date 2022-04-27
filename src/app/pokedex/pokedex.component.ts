@@ -6,17 +6,10 @@ import { PokeCollapseComponent } from "./poke-collapse/poke-collapse.component";
   templateUrl: './pokedex.component.html',
   styleUrls: ['./pokedex.component.css']
 })
-export class PokedexComponent implements OnInit {
-  selected: string = '';
+export class PokedexComponent {
+  selected: string = 'Bulbasaur';
 
-  @ViewChild(PokeCollapseComponent) hijo: any;
-
-  constructor(public changeDetector: ChangeDetectorRef) { }
-
-  ngOnInit(): void {
-  }
-
-  ngAfterViewInit() {
-    this.selected = this.hijo.selected;
+  onChanges(name: string) {
+    this.selected = name;
   }
 }

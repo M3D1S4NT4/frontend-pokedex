@@ -14,6 +14,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NaturesComponent } from './pokedex/natures/natures.component';
+import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculator.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { NaturesComponent } from './pokedex/natures/natures.component';
     PokeCollapseComponent,
     NavBarComponent,
     NaturesComponent,
+    TypeCalculatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { NaturesComponent } from './pokedex/natures/natures.component';
     HttpClientModule,
     ReactiveFormsModule,
     NgbModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

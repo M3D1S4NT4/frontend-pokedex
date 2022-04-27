@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Pokemon } from './pokemon';
 import {Nature} from "./natures/nature";
+import {typeCalculator} from "./type-calculator/typeCalculator"
 
 @Injectable({
   providedIn: 'root'
