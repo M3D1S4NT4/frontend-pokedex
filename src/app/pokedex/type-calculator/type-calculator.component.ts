@@ -53,8 +53,8 @@ export class TypeCalculatorComponent implements OnInit {
   }
 
   public calculateTypes(type1: string, type2: string): number[] | undefined {
+    this.damagesRes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     if (type1 == "1") {
-      this.damagesRes = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       return this.damagesRes;
     }
     if (type2 == "2" || type1 == type2) {
@@ -64,10 +64,9 @@ export class TypeCalculatorComponent implements OnInit {
       this.damages = this.typeTable.get(type1)!;
       this.damages2 = this.typeTable.get(type2)!;
       for (let i = 0; i < this.damages.length; i++) {
-        this.damages[i] *= this.damages2[i];
+        this.damagesRes[i] = this.damages[i] * this.damages2[i];
       }
     }
-    this.damagesRes = this.damages;
     return this.damagesRes;
   }
 
