@@ -1,35 +1,27 @@
 <div class="register">
     <form [formGroup]="form" (ngSubmit) = "onSubmit()">
       <h1>Register</h1>
-      <input
-        type="text"
-        name="userName"
-        placeholder="User Name"
-        required="required"
-        formControlName="userName"
-      />
-      <input
-      type="email"
-      name="email"
-      placeholder="E-Mail"
-      required="required"
-      formControlName="email"
-      />
-
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-        formControlName="password"
-      />
-
-      <input
-        type="password"
-        name="password"
-        placeholder="Repeat Password"
-        required="required"
-      />
-      <button type="submit">Register</button>
+      <input type="text" placeholder="User name" formControlName="userName"/>
+      <div class="alert alert-danger" *ngIf="name?.errors && (name?.dirty || name?.touched)">
+        <p *ngIf="name?.errors?.required">Name is required.</p>
+        <p *ngIf="name?.errors?.minlength || name?.errors?.maxlength">The name must be longer than {{name?.errors?.minlength?.requiredLength}} characters and shorter than {{name?.errors?.maxlength?.requiredLength}} characters.</p>
+      </div>
+      <input type="email" placeholder="E-Mail" formControlName="email"/>
+      <div class="alert alert-danger" *ngIf=" email?.errors && (email?.dirty || email?.touched)">
+        <p *ngIf="email?.errors?.required">E-Mail is required.</p>
+        <p *ngIf="email?.errors?.email">E-Mail must be valid.</p>
+      </div>
+      <input type="password" name="password" placeholder="Password" formControlName="password"/>
+      <div class="alert alert-danger" *ngIf="passwd?.errors && (passwd?.dirty || passwd?.touched)">
+        <p *ngIf="passwd?.errors?.required">Password is required.</p>
+        <p *ngIf="passwd?.errors?.minlength || passwd?.errors?.maxlength">The password must be longer than {{passwd?.errors?.minlength?.requiredLength}} characters and shorter than {{name?.errors?.maxlength?.requiredLength}} characters.</p>
+      </div>
+      <input type="password" name="password" placeholder="Repeat the password" formControlName="repeatPassword"/>
+      <div class="alert alert-danger" *ngIf="rPasswd?.dirty || rPasswd?.touched">
+        <p *ngIf="rPasswd?.errors?.required">Repeat the password please.</p>
+        <p *ngIf="rPasswd?.errors?.comparePasswordValidator">Password doesn´t match</p>
+      </div>
+      <!--<button type="submit" [disabled]="form.invalid">Register</button>-->
+      <button type="button" (click)="consoleLog()">Prueba</button>
     </form>
   </div>
