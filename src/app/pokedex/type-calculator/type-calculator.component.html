@@ -34,11 +34,25 @@
       </div>
     </div>
     <div class="bg-white rounded-3 p-2 fs-5">
-      <p>You only need to know three rules to use this calculator:</p>
+      <p>This type combination has:</p>
       <ul>
-        <li>You have to select at least one type, from the left button</li>
-        <li>You can´t select the same type twice</li>
-        <li>Try to find the best combination!</li>
+        <li  *ngIf="countRes[0] == 1">{{countRes[0]}} immunity (x0)</li>
+        <li  *ngIf="countRes[0] > 1 || countRes[0] == 0">{{countRes[0]}} immunities (x0)</li>
+
+        <li  *ngIf="countRes[1] == 1">{{countRes[1]}} double resistance (x0.25)</li>
+        <li  *ngIf="countRes[1] > 1 || countRes[1] == 0">{{countRes[1]}} double resistances (x0.25)</li>
+
+        <li  *ngIf="countRes[2] == 1">{{countRes[2]}} resistance (x0.5)</li>
+        <li  *ngIf="countRes[2] > 1 || countRes[2] == 0">{{countRes[2]}} resistances (x0.5)</li>
+
+        <li  *ngIf="countRes[3] == 1">{{countRes[3]}} neutral damage (x1)</li>
+        <li  *ngIf="countRes[3] > 1 || countRes[3] == 0">{{countRes[3]}} neutral damages (x1)</li>
+
+        <li  *ngIf="countRes[4] == 1">{{countRes[4]}} weakness (x2)</li>
+        <li  *ngIf="countRes[4] > 1 || countRes[4] == 0">{{countRes[4]}} weaknesses (x2)</li>
+
+        <li  *ngIf="countRes[5] == 1">{{countRes[5]}} double weakness (x4)</li>
+        <li  *ngIf="countRes[5] > 1 || countRes[5] == 0">{{countRes[5]}} double weaknesses (x4)</li>
       </ul>
     </div>
   </section>
