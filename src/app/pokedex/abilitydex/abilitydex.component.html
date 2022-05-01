@@ -25,11 +25,12 @@
       class="form-control"
       [(ngModel)]="model"
       [ngbTypeahead]="search"
+      [editable]="false"
       (focus)="focus$.next($any($event).target.value)"
       (click)="click$.next($any($event).target.value)"
       (keydown.enter)="duplicateModel(model)"
       (focusin)="duplicateModel(model)"
-      (keydown.delete)="duplicateModel(model)"
+      (keydown.backspace)="deleteModel()"
       #instance="ngbTypeahead"
     />
     <div class="col rounded-3 border border-dark text-center offset-1 bg-white p-3 zoom">
