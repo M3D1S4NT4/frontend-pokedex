@@ -1,20 +1,23 @@
-<div class="login">
-    <form [formGroup]="form" (ngSubmit) = "onSubmit()">
-      <h1>Login</h1>
-      <input
-        type="text"
-        name="userName"
-        placeholder="User Name"
-        required="required"
-        formControlName="userName"
-      />
-      <input
-        type="password"
-        name="password"
-        placeholder="Password"
-        required="required"
-        formControlName="password"
-      />
-      <button type="submit" href="/pokedex">Log in</button>
+<div class="register" class="row g-0">
+  <div class="col-6 vh-100 overflow-hidden">
+    <img class="w-100" src="https://i.pinimg.com/originals/3c/a9/9a/3ca99aa52168e8680908bb4da67fcd11.jpg">
+  </div>
+  <div class="col-6 bg-danger d-flex align-items-center">
+    <form [formGroup]="form" (ngSubmit) = "onSubmit()" class="bg-white border border-2 rounded-3 p-3  mx-3 border-dark text-center flex-fill">
+      <h1></h1>
+
+      <div class="row">
+        <input type="text" placeholder="User name" formControlName="userName" class="rounded-3 p-3 col-8 my-2"/>
+      </div>
+      <br>
+      <div class="row">
+        <input type="password" name="password" placeholder="Password" formControlName="password" class="rounded-3 p-3 col-8 my-2"/>
+      </div>
+      <br>
+
+      <div class="row">
+        <button type="submit" [disabled]="form.invalid" class="rounded-3 p-3 col-2 offset-6">Log in</button>
+      </div>
     </form>
   </div>
+</div>

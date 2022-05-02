@@ -1,26 +1,33 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user';
-
-
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
 
-  form = new FormGroup({
-    userName: new FormControl(''),
-    password: new FormControl(''),
-  });
+  form!: FormGroup;
 
-  constructor(public userService: UserService) {}
+  constructor(public userService: UserService, private formBuilder: FormBuilder) {}
+
+  ngOnInit(): void{
+    this.form=this.initForm();
+  }
+
+  initForm():FormGroup{
+    return this.formBuilder.group({
+      userName: [''],
+      password: ['']
+    });
+  }
 
   onSubmit(){
-    const user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
+    let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
+    console.log(user);
     this.userService.login(user).subscribe( (data) => {
       console.log(data);
     }, (error) => {

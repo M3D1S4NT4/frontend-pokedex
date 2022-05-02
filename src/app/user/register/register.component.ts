@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../user';
 
 @Component({
@@ -30,8 +30,7 @@ export class RegisterComponent implements OnInit{
   }
 
   onSubmit():void {
-    let user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
-    //console.log(user);
+    let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
     this.userService.register(user).subscribe( (data) => {
       console.log(data);
     }, (error) => {
@@ -53,11 +52,6 @@ export class RegisterComponent implements OnInit{
 
   get rPasswd(){
     return this.form.get('repeatPassword');
-  }
-
-  consoleLog():void {
-    let user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
-    console.log(user);
   }
 }
 
