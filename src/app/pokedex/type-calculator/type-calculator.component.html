@@ -26,7 +26,7 @@
       </select>
   </section>
   <section class="row bg-danger p-2 rounded-3 mt-4">
-    <div class="py-4 justify-content-center rounded-3 row row-cols-xl-6">
+    <div class="py-4 justify-content-center rounded-3 row row-cols-2 row-cols-md-4 row-cols-xl-6">
       <div *ngFor="let type of typeList; let i = index" class="d-flex">
         <div class="col-2 rounded-3 border border-dark text-center bg-white mb-4 mx-3 ms-0 p-3 zoom flex-fill">
           <span class="fs-6"><b> {{type}}</b>: <i>x{{damagesRes[i]}}</i></span>

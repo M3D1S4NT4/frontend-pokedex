@@ -1,5 +1,4 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-//import {NgbActiveModal, NgbModal} from '../@ng-bootstrap/ng-bootstrap';
 import {Pokemon} from "../pokemon";
 import {PokedexService} from "../pokedex.service";
 import {HttpErrorResponse} from "@angular/common/http";

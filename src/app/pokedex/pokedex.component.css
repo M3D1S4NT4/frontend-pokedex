@@ -3,6 +3,10 @@
   overflow-y: hidden !important;
 }
 
+.overflow-x-hidden {
+  overflow-x: hidden !important;
+}
+
 .overflow-y-scroll {
   height: 77vh !important;
   overflow-y: auto !important;
