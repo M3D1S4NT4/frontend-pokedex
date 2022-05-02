@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {CookieService} from "ngx-cookie-service";
 
 
 @Component({
@@ -26,4 +27,6 @@ export class AppComponent {
       }
     );
   }*/
+  constructor(private cookieService: CookieService) {
+  }
 }
