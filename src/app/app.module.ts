@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NaturesComponent } from './pokedex/natures/natures.component';
 import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculator.component';
 import { AbilitydexComponent } from './pokedex/abilitydex/abilitydex.component';
+import { ItemdexComponent } from './pokedex/itemdex/itemdex.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { AbilitydexComponent } from './pokedex/abilitydex/abilitydex.component';
     NaturesComponent,
     TypeCalculatorComponent,
     AbilitydexComponent,
+    ItemdexComponent,
   ],
   imports: [
     BrowserModule,

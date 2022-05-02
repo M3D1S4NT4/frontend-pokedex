@@ -7,6 +7,7 @@ import {HomeComponent} from './home/home.component';
 import { NaturesComponent } from './pokedex/natures/natures.component';
 import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculator.component';
 import { AbilitydexComponent } from './pokedex/abilitydex/abilitydex.component';
+import {ItemdexComponent} from "./pokedex/itemdex/itemdex.component";
 
 const routes: Routes = [
   {path: "", component: PokedexComponent, pathMatch: "full"},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: "typeCalculator", component: TypeCalculatorComponent, pathMatch: "full"},
   {path: "abilities", component: AbilitydexComponent, pathMatch: "full"},
   {path: "home", component: HomeComponent, pathMatch: "full"},
+  {path: "items", component: ItemdexComponent, pathMatch: "full"},
 ];
 
 @NgModule({
