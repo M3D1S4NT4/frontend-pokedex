@@ -6,6 +6,7 @@ import { Pokemon } from './pokemon';
 import { Nature } from "./natures/nature";
 import { typeCalculator } from "./type-calculator/typeCalculator"
 import { Ability } from "./abilitydex/ability"
+import { Move } from "./movedex/move"
 import {Item} from "./itemdex/item";
 
 @Injectable({
@@ -26,6 +27,10 @@ private apiServerUrl= environment.apiBaseUrl;
 
   public getAbilities(): Observable<Ability[]> {
     return this.http.get<Ability[]>(`${this.apiServerUrl}/controller/getAbilities`)
+  }
+
+  public getMoves(): Observable<Move[]> {
+    return this.http.get<Move[]>(`${this.apiServerUrl}/controller/getMoves`)
   }
 
   public getItems(): Observable<Item[]> {
