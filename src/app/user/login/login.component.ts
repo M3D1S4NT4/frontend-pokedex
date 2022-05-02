@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
 
@@ -11,8 +12,8 @@ import { User } from '../user';
 export class LoginComponent implements OnInit{
 
   form!: FormGroup;
-
-  constructor(public userService: UserService, private formBuilder: FormBuilder) {}
+  logged!:boolean;
+  constructor(private router:Router,public userService: UserService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void{
     this.form=this.initForm();
@@ -20,19 +21,29 @@ export class LoginComponent implements OnInit{
 
   initForm():FormGroup{
     return this.formBuilder.group({
-      userName: [''],
-      password: ['']
-    });
+      userName:['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
+      password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]]
+      });
   }
-
+  get log(){
+    return this.logged;
+  }
+  get password(){
+    return this.form.get('password');
+  }
   onSubmit(){
     let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
     console.log(user);
     this.userService.login(user).subscribe( (data) => {
       console.log(data);
+      this.logged=data;
+      if(this.logged){
+        this.router.navigate(['/pokedex']);
+      }
     }, (error) => {
       console.log("Error", error);
     }
     );
+
   }
 }
