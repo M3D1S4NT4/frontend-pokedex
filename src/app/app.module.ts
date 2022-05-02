@@ -18,6 +18,9 @@ import { TypeCalculatorComponent } from './pokedex/type-calculator/type-calculat
 import { AbilitydexComponent } from './pokedex/abilitydex/abilitydex.component';
 import { MovedexComponent } from './pokedex/movedex/movedex.component';
 import { ItemdexComponent } from './pokedex/itemdex/itemdex.component';
+import { TeamCreatorComponent } from './team-creator/team-creator.component';
+import { PokemonEditorComponent } from './team-creator/team-editor/pokemon-editor/pokemon-editor.component';
+import { TeamEditorComponent } from './team-creator/team-editor/team-editor.component';
 
 
 @NgModule({
@@ -34,6 +37,9 @@ import { ItemdexComponent } from './pokedex/itemdex/itemdex.component';
     AbilitydexComponent,
     MovedexComponent,
     ItemdexComponent,
+    TeamCreatorComponent,
+    PokemonEditorComponent,
+    TeamEditorComponent,
   ],
   imports: [
     BrowserModule,
