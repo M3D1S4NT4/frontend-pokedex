@@ -13,9 +13,9 @@ export class RegisterComponent implements OnInit{
   form!: FormGroup;
 
   constructor(public userService: UserService, private formBuilder : FormBuilder) { }
-  
+
   ngOnInit(): void {
-    this.form = this.initForm();  
+    this.form = this.initForm();
   }
 
   initForm(): FormGroup {
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit{
       userName: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]],
-      repeatPassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30), comparePasswdValidator]]
+      repeatPassword: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]]
     }, {
       validator: comparePasswdValidator('password', 'repeatPassword')
     })
@@ -31,7 +31,7 @@ export class RegisterComponent implements OnInit{
 
   onSubmit():void {
     let user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
-    console.log(user);
+    //console.log(user);
     this.userService.register(user).subscribe( (data) => {
       console.log(data);
     }, (error) => {
@@ -59,8 +59,6 @@ export class RegisterComponent implements OnInit{
     let user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
     console.log(user);
   }
-
-  
 }
 
 function comparePasswdValidator(passwd: string, repeatPasswd: string) {
@@ -75,5 +73,5 @@ function comparePasswdValidator(passwd: string, repeatPasswd: string) {
     } else {
         matchingControl.setErrors(null);
     }
-}
+  }
 }

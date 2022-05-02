@@ -28,21 +28,18 @@
             <input type="password" name="password" placeholder="Password" formControlName="password" class="rounded-3 p-3 col-8 my-2"/>
             <div class="alert alert-danger col-4 my-2" *ngIf="passwd?.errors && (passwd?.dirty || passwd?.touched)">
               <p *ngIf="passwd?.errors?.required">Password is required.</p>
-              <p *ngIf="passwd?.errors?.minlength || passwd?.errors?.maxlength">The password must be longer than {{passwd?.errors?.minlength?.requiredLength}} characters and shorter than {{name?.errors?.maxlength?.requiredLength}} characters.</p>
+              <p *ngIf="passwd?.errors?.minlength || passwd?.errors?.maxlength">The password must be longer than 6 characters and shorter than 30.</p>
             </div>
           </div>
           <br>
 
           <div class="row">
             <input type="password" name="password" placeholder="Repeat the password" formControlName="repeatPassword" class="rounded-3 p-3 col-8 my-2"/>
-            <div class="alert alert-danger col-4 my-2" *ngIf="rPasswd?.dirty || rPasswd?.touched">
-              <p *ngIf="rPasswd?.errors?.required">Repeat the password please.</p>
-              <p *ngIf="rPasswd?.errors?.comparePasswordValidator">Password doesn´t match</p>
-            </div>
+
           </div>
           <br>
 
-          <!--<button type="submit" [disabled]="form.invalid">Register</button>-->
+          <button type="submit" [disabled]="form.invalid">Register</button>
           <div class="row">
             <button type="button" (click)="consoleLog()" class="rounded-3 p-3 col-2 offset-6">Register</button>
           </div>

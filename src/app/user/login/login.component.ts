@@ -20,9 +20,7 @@ export class LoginComponent {
   constructor(public userService: UserService) {}
 
   onSubmit(){
-
     const user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
-    console.log(user);
     this.userService.login(user).subscribe( (data) => {
       console.log(data);
     }, (error) => {
