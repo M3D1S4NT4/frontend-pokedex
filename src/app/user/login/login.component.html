@@ -16,7 +16,12 @@
       <br>
 
       <div class="row">
-        <button type="submit" [disabled]="form.invalid" class="rounded-3 p-3 col-2 offset-6">Log in</button>
+        <button type="submit" [disabled]="form.invalid" class="rounded-3 p-3 col-2 offset-6">
+          Log in
+        </button>
+      </div>
+      <div class="alert alert-danger col-4 my-2" *ngIf="!log && (password?.dirty && password?.touched)">
+        <p> Ey vuelve por donde has venido pardillo!</p>
       </div>
     </form>
   </div>
