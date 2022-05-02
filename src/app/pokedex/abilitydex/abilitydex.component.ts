@@ -55,6 +55,13 @@ export class AbilitydexComponent implements OnInit {
     }
   }
 
+  public deleteModel(): void {
+    let aux = '';
+    aux = '';
+    this.searched = aux;
+    return;
+  }
+
   @ViewChild('instance', {static: true}) instance!: NgbTypeahead;
   focus$ = new Subject<string>();
   click$ = new Subject<string>();

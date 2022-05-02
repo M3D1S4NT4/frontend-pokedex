@@ -13,7 +13,7 @@ export class TypeCalculatorComponent implements OnInit {
   public typeTable: Map<string, number[]> = new Map<string, number[]>();
   public typeList!: string[] | undefined;
   public damagesRes: number[] = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-  public countRes: number[] = [];
+  public countRes: number[] = [0, 0, 0, 0, 0, 0];
   public damages!: number[];
   public damages2!: number[];
   t1 = '1';
@@ -27,6 +27,7 @@ export class TypeCalculatorComponent implements OnInit {
 
   public capturar(): void {
     this.calculateTypes(this.t1, this.t2);
+    this.generateWeaknessesData();
   }
 
   public getTypeTable(): void {
@@ -69,6 +70,25 @@ export class TypeCalculatorComponent implements OnInit {
       }
     }
     return this.damagesRes;
+  }
+
+  public generateWeaknessesData() {
+    this.countRes = [0, 0, 0, 0, 0, 0]
+    for (let i = 0; i < this.damagesRes.length; i++) {
+      if (this.damagesRes[i] == 0) {
+        this.countRes[0]++;
+      } else if (this.damagesRes[i] == 0.25) {
+        this.countRes[1]++;
+      } else if (this.damagesRes[i] == 0.5) {
+        this.countRes[2]++;
+      } else if (this.damagesRes[i] == 1) {
+        this.countRes[3]++;
+      } else if (this.damagesRes[i] == 2) {
+        this.countRes[4]++;
+      } else if (this.damagesRes[i] == 4) {
+        this.countRes[5]++;
+      }
+    }
   }
 
 }
