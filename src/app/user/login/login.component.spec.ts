@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import * as Cookies from 'js-cookie';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {

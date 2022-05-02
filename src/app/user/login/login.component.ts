@@ -3,6 +3,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../user.service';
 import { User } from '../user';
 
+
+Cookies.set('nombre', 'valor');
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -18,14 +20,14 @@ export class LoginComponent {
   constructor(public userService: UserService) {}
 
   onSubmit(){
-    
+
     let user: User = {name: this.form.value.userName, password: this.form.value.password, email: this.form.value.email};
     console.log(user);
     this.userService.login(user).subscribe( (data) => {
       console.log(data);
     }, (error) => {
       console.log("Error", error);
-    } 
+    }
     );
   }
 }
