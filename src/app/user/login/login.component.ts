@@ -14,10 +14,8 @@ export class LoginComponent implements OnInit{
 
   form!: FormGroup;
   logged!:boolean;
-  cookieService!:CookieService;
-  @Output() username = new EventEmitter<string>();
 
-  constructor(private router:Router,public userService: UserService, private formBuilder: FormBuilder) {}
+  constructor(private router:Router,public userService: UserService, private formBuilder: FormBuilder, private cookieService: CookieService) {}
 
   ngOnInit(): void{
     this.form=this.initForm();
@@ -32,9 +30,11 @@ export class LoginComponent implements OnInit{
   get log(){
     return this.logged;
   }
+
   get password(){
-    return this.form.get('password');
+    return this.form.value.password;
   }
+
   onSubmit(){
     let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
     console.log(user);
@@ -43,17 +43,11 @@ export class LoginComponent implements OnInit{
       this.logged=data;
       if(this.logged){
         this.router.navigate(['/pokedex']);
-        //this.cookieService.set("user", user.getName());
-        this.setUsername(user.getName());
+        this.cookieService.set("user", user.getName());
+        this.cookieService.set("password", user.getPassword());
       }
     }, (error) => {
       console.log("Error", error);
-    }
-    );
-
-  }
-
-  public setUsername(name: string) {
-    this.username.emit(name);
+    });
   }
 }

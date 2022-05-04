@@ -7,14 +7,18 @@ export class User{
   private password: string;
   private email: string;
   public teams!: Pokemon[];
-  private cookie!: CookieService;
 
   constructor(userName: string, passwd: string, email: string) {
     this.name = userName;
     this.password = sha512.sha512(passwd);
     this.email = email;
   }
+
   getName(){
     return this.name;
+  }
+
+  getPassword(){
+    return this.password;
   }
 }

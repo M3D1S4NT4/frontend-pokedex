@@ -27,6 +27,15 @@ export class AppComponent {
       }
     );
   }*/
-  constructor(private cookieService: CookieService) {
+  constructor ( private cookieSvc: CookieService){
+  }
+
+  ngOnInit():void {
+    if (this.cookieSvc.get("UserAutenticado") == null) {
+      this.cookieSvc.set('UserAutenticado', 'noAutenticado', 0.00000000001);
+      console.log(this.cookieSvc.get('UserAutenticado'));
+    } else {
+      console.log("El usuario esta autenticado con id: " + this.cookieSvc.get('UserAutenticado'));
+    }
   }
 }

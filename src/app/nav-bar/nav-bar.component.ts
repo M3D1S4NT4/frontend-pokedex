@@ -8,17 +8,15 @@ import {User} from "../user/user";
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+
   public isMenuCollapsed = true;
-  logged!:boolean;
-  username!: string;
-  constructor() { }
+  public name : string = '';
+
+  constructor(private cookieService:CookieService) {  }
 
   ngOnInit(): void {
+    if ((this.name = this.cookieService.get("user")) != null) {
+      console.log(this.name);
+    }
   }
-
-  usernameOnChanges(name: string) {
-    this.username = name;
-    this.logged = true;
-  }
-
 }
