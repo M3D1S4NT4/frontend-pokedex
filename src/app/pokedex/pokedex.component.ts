@@ -8,7 +8,6 @@ import { PokeCollapseComponent } from "./poke-collapse/poke-collapse.component";
 })
 export class PokedexComponent {
   selected: string = 'Bulbasaur';
-
   onChanges(name: string) {
     this.selected = name;
   }

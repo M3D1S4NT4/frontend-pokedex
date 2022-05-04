@@ -11,4 +11,7 @@ export class User{
     this.password = sha512.sha512(passwd);
     this.email = email;
   }
+  getName(){
+    return this.name;
+  }
 }

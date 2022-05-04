@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import { UserService } from '../user.service';
 import { User } from '../user';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -13,6 +14,9 @@ export class LoginComponent implements OnInit{
 
   form!: FormGroup;
   logged!:boolean;
+  cookieService!:CookieService;
+  @Output() username = new EventEmitter<string>();
+
   constructor(private router:Router,public userService: UserService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void{
@@ -39,11 +43,17 @@ export class LoginComponent implements OnInit{
       this.logged=data;
       if(this.logged){
         this.router.navigate(['/pokedex']);
+        //this.cookieService.set("user", user.getName());
+        this.setUsername(user.getName());
       }
     }, (error) => {
       console.log("Error", error);
     }
     );
 
+  }
+
+  public setUsername(name: string) {
+    this.username.emit(name);
   }
 }
