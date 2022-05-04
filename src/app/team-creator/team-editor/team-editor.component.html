@@ -1,1 +1,17 @@
-<p>team-editor works!</p>
+<body>
+<br>
+<div class="col bg-light">
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<br>
+
+<div class="container bg-danger rounded-3 mt-4">
+  <div class="row p-3">
+    <button class="btn btn-dark border border-2 border-dark col-xl-3"><a class="btn text-white fs-4" href="/pokemonEditor">+ New Pokémon</a></button>
+    <div class="bg-white py-4 rounded-3 col-8 offset-1" *ngFor="let pokemon of pokemons">
+
+    </div>
+  </div>
+</div>
+</body>
