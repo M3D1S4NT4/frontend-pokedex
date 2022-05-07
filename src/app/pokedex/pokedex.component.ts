@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class PokedexComponent {
   selected: string = 'Bulbasaur';
   constructor(private cookie:CookieService) {
-    cookie.set("user",'');
+
   }
   onChanges(name: string) {
     this.selected = name;

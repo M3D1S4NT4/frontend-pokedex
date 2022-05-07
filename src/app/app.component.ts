@@ -31,11 +31,11 @@ export class AppComponent {
   }
 
   ngOnInit():void {
-    if (this.cookieSvc.get("UserAutenticado") == null) {
-      this.cookieSvc.set('UserAutenticado', 'noAutenticado', 0.00000000001);
-      console.log(this.cookieSvc.get('UserAutenticado'));
+    if (this.cookieSvc.get("user") == null) {
+      this.cookieSvc.set('user', '');
+      console.log(this.cookieSvc.get('user'));
     } else {
-      console.log("El usuario esta autenticado con id: " + this.cookieSvc.get('UserAutenticado'));
+      console.log("El usuario esta autenticado con id: " + this.cookieSvc.get('user'));
     }
   }
 }
