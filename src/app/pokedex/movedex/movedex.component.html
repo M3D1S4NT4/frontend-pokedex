@@ -34,11 +34,11 @@
     />
     <div class="col rounded-3 border border-2 border-dark text-center offset-1 bg-white p-3 zoom">
       <span class="fs-6"><b> {{model}}</b></span>
-      <br *ngIf="model != null">
+      <hr *ngIf="model != null">
       <span class="fs-6" *ngIf="model != null"><i>Power: <b>{{sPower}}</b> // Accuracy: <b>{{sAccuracy}}</b></i></span>
       <br *ngIf="model != null">
       <span class="fs-6" *ngIf="model != null"><i>Type: <b>{{sType}}</b> // Category: <b>{{sCategory}}</b></i></span>
-      <br *ngIf="model != null">
+      <hr *ngIf="model != null">
       <span class="fs-6"> {{searched}}</span>
     </div>
   </div>
@@ -47,11 +47,11 @@
     <div *ngFor="let move of moves" class="d-flex">
       <div class="col rounded-3 border border-2 border-dark text-center bg-white my-2 mx-3 ms-0 p-3 zoom flex-fill">
         <span class="fs-6"><b> {{move.name}}</b></span>
-        <br>
+        <hr>
         <span class="fs-6"><i>Power: <b>{{move.basePower}}</b> // Accuracy: <b>{{move.baseAccuracy}}</b></i></span>
         <br>
         <span class="fs-6"><i>Type: <b>{{move.type}}</b> // Category: <b>{{move.category}}</b></i></span>
-        <br>
+        <hr>
         <span class="fs-6"> {{move.description}}</span>
       </div>
     </div>

@@ -58,8 +58,8 @@ export class ItemdexComponent implements OnInit {
 
   public deleteModel(): void {
     let aux = '';
-    aux = '';
     this.searched = aux;
+    this.image = aux;
     return;
   }
 

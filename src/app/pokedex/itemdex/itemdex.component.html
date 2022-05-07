@@ -34,7 +34,7 @@
     />
     <div class="col-12 col-md-6 col-xl rounded-3 border border-2 border-dark text-center offset-xl-1 offset-md-1 bg-white p-3 zoom">
       <span class="fs-6">{{model}} <img src="{{image}}"></span>
-      <br>
+      <hr *ngIf="model != null">
       <span class="fs-6"> {{searched}}</span>
     </div>
   </div>
@@ -43,7 +43,7 @@
     <div *ngFor="let item of items" class="d-flex">
       <div class="rounded-3 border border-2 border-dark text-center bg-white my-2 p-3 zoom flex-fill">
         <span class="fs-6"><b>{{item.name}}</b> <img src="{{item.image}}"> </span>
-        <br>
+        <hr>
         <span class="fs-6"> {{item.description}}</span>
       </div>
     </div>
