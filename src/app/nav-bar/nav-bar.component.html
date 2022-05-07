@@ -25,7 +25,7 @@
         <li class="nav-item active">
           <!-- Step 4: Close the menu when a link is clicked. -->
           <div *ngIf="this.name == ''">
-            <a class="nav-link" href="/login" (click)="isMenuCollapsed = true">Login</a>
+            <a class="nav-link" href="/login" (click)="isMenuCollapsed = true">Log in</a>
           </div>
           <div *ngIf="this.name != ''">
             <a class="nav-link" href="/moves" (click)="isMenuCollapsed = true">{{this.name}}</a>
