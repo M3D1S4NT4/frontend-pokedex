@@ -17,7 +17,10 @@ export class MovedexComponent implements OnInit {
   public length!: number;
   public model!: any;
   public searched = '';
-
+  public sPower!: string;
+  public sAccuracy!: string;
+  public sType!: string;
+  public sCategory!: string;
   constructor(public pokedexService: PokedexService) { }
 
   ngOnInit(): void {
@@ -49,6 +52,14 @@ export class MovedexComponent implements OnInit {
       if (modelString == this.moves[i].name) {
         aux = this.moves[i].description;
         this.searched = aux;
+        aux = this.moves[i].basePower;
+        this.sPower = aux;
+        aux = this.moves[i].baseAccuracy;
+        this.sAccuracy = aux;
+        aux = this.moves[i].type;
+        this.sType = aux;
+        aux = this.moves[i].category;
+        this.sCategory = aux;
         return;
       }
     }
@@ -56,8 +67,11 @@ export class MovedexComponent implements OnInit {
 
   public deleteModel(): void {
     let aux = '';
-    aux = '';
     this.searched = aux;
+    this.sPower = aux;
+    this.sAccuracy = aux;
+    this.sType = aux;
+    this.sCategory = aux;
     return;
   }
 

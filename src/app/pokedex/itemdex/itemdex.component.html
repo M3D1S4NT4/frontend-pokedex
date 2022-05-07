@@ -33,7 +33,7 @@
       #instance="ngbTypeahead"
     />
     <div class="col-12 col-md-6 col-xl rounded-3 border border-2 border-dark text-center offset-xl-1 offset-md-1 bg-white p-3 zoom">
-      <span class="fs-6"><i><b> {{model}}</b></i> <img src="{{image}}"></span>
+      <span class="fs-6">{{model}} <img src="{{image}}"></span>
       <br>
       <span class="fs-6"> {{searched}}</span>
     </div>
@@ -42,7 +42,7 @@
   <div class="py-4 rounded-3 row row-cols-md-2 row-cols-xl-3 col-10 offset-1">
     <div *ngFor="let item of items" class="d-flex">
       <div class="rounded-3 border border-2 border-dark text-center bg-white my-2 p-3 zoom flex-fill">
-        <span class="fs-6"><i><b> {{item.name}}</b></i> <img src="{{item.image}}"> </span>
+        <span class="fs-6"><b>{{item.name}}</b> <img src="{{item.image}}"> </span>
         <br>
         <span class="fs-6"> {{item.description}}</span>
       </div>
