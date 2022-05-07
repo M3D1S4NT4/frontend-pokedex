@@ -16,6 +16,7 @@ export class ItemdexComponent implements OnInit {
   public items!: Item[];
   public model!: any;
   public searched = '';
+  public image = '';
 
   constructor(public pokedexService: PokedexService) { }
 
@@ -25,7 +26,7 @@ export class ItemdexComponent implements OnInit {
 
   public getItems(): void {
     this.pokedexService.getItems().subscribe(
-      (response: Ability[]) => {
+      (response: Item[]) => {
         this.items = response;
       },
       (error: HttpErrorResponse) => {
@@ -48,6 +49,8 @@ export class ItemdexComponent implements OnInit {
       if (modelString == this.items[i].name) {
         aux = this.items[i].description;
         this.searched = aux;
+        aux = this.items[i].image;
+        this.image = aux;
         return;
       }
     }

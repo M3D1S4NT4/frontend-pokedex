@@ -1,5 +1,3 @@
-import { Move } from "src/app/pokedex/movedex/move";
-
 export interface TrainerPokemon {
   name: string;
   number: string;

@@ -22,7 +22,6 @@ export class MovedexComponent implements OnInit {
 
   ngOnInit(): void {
     this.getMoves();
-    this.length = this.moves.length;
   }
 
   public getMoves(): void {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../pokedex/pokemon';
-import { User } from "../user/user";
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-team-creator',
@@ -8,8 +8,8 @@ import { User } from "../user/user";
   styleUrls: ['./team-creator.component.css']
 })
 export class TeamCreatorComponent implements OnInit {
-  user!: User;
-  teams!: Pokemon[];
+  cookie!: CookieService;
+  teams!: (Pokemon[])[];
 
   constructor() { }
 
@@ -17,4 +17,7 @@ export class TeamCreatorComponent implements OnInit {
 
   }
 
+  getTeams() {
+
+  }
 }
