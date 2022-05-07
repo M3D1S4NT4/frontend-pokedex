@@ -32,6 +32,7 @@ export class AppComponent {
 
   ngOnInit():void {
     if (this.cookieSvc.get("user") == null) {
+      this.cookieSvc.deleteAll();
       this.cookieSvc.set('user', '');
       console.log(this.cookieSvc.get('user'));
     } else {
