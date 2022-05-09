@@ -1,6 +1,5 @@
 import {Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef} from '@angular/core';
 import { PokeCollapseComponent } from "./poke-collapse/poke-collapse.component";
-import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-pokedex',
   templateUrl: './pokedex.component.html',
@@ -8,7 +7,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class PokedexComponent {
   selected: string = 'Bulbasaur';
-  constructor(private cookie:CookieService) {
+  constructor() {
 
   }
   onChanges(name: string) {

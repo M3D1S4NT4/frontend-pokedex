@@ -21,6 +21,7 @@ import { ItemdexComponent } from './pokedex/itemdex/itemdex.component';
 import { TeamCreatorComponent } from './team-creator/team-creator.component';
 import { PokemonEditorComponent } from './team-creator/team-editor/pokemon-editor/pokemon-editor.component';
 import { TeamEditorComponent } from './team-creator/team-editor/team-editor.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { TeamEditorComponent } from './team-creator/team-editor/team-editor.comp
     TeamCreatorComponent,
     PokemonEditorComponent,
     TeamEditorComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
