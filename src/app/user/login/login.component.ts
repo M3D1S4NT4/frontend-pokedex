@@ -44,7 +44,6 @@ export class LoginComponent implements OnInit{
       if(this.logged){
         this.router.navigate(['/pokedex']);
         this.cookieService.set("user", user.getName());
-
       }
     }, (error) => {
       console.log("Error", error);

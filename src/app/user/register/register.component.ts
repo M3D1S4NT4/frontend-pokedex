@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../user';
-
+import {Router} from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit{
 
   form!: FormGroup;
 
-  constructor(public userService: UserService, private formBuilder : FormBuilder) { }
+  constructor(public userService: UserService, private formBuilder : FormBuilder, private router:Router, private cookieService: CookieService) { }
 
   ngOnInit(): void {
     this.form = this.initForm();
@@ -33,6 +34,11 @@ export class RegisterComponent implements OnInit{
     let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
     this.userService.register(user).subscribe( (data) => {
       console.log(data);
+      if(data!=null){
+        this.router.navigate(['/pokedex']);
+        this.cookieService.set("user", user.getName());
+      }
+
     }, (error) => {
       console.log("Error", error);
     });

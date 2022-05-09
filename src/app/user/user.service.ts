@@ -9,7 +9,7 @@ import { User } from './user';
 })
 export class UserService {
 
-    private apiServerUrl= environment.apiBaseUrl;
+    private apiServerUrl = environment.apiBaseUrl;
 
     constructor(private http: HttpClient) { }
 
@@ -19,5 +19,9 @@ export class UserService {
 
     register(user: User): Observable<User> {
       return this.http.post<User>(`${this.apiServerUrl}/controller/register`, user);
+    }
+
+    getEmailByName(name: string): Observable<User> {
+      return this.http.post<User>(`${this.apiServerUrl}/controller/getEmailByName`, name);
     }
 }

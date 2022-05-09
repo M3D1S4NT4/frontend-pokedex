@@ -21,4 +21,8 @@ export class User{
   getPassword(){
     return this.password;
   }
+
+  get Email(){
+    return this.email;
+  }
 }
