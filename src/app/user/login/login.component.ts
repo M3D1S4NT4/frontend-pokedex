@@ -12,13 +12,13 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class LoginComponent implements OnInit{
 
-  form!: FormGroup;
-  logged!:boolean;
+  form! : FormGroup;
+  logged! : boolean;
 
   constructor(private router:Router,public userService: UserService, private formBuilder: FormBuilder, private cookieService: CookieService) {}
 
   ngOnInit(): void{
-    this.form=this.initForm();
+    this.form = this.initForm();
   }
 
   initForm():FormGroup{
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit{
 
   onSubmit(){
     let user = new User(this.form.value.userName, this.form.value.password, this.form.value.email);
-    console.log(user);
+    //console.log(user);
     this.userService.login(user).subscribe( (data) => {
       console.log(data);
       this.logged=data;
@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit{
         this.router.navigate(['/pokedex']);
         this.cookieService.set("user", user.getName());
       }
+      this.form.patchValue({password: ''});
     }, (error) => {
       console.log("Error", error);
     });

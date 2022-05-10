@@ -20,7 +20,7 @@
           Log in
         </button>
       </div>
-      <div class="alert alert-danger col-4 my-2" *ngIf="!log && (password?.dirty && password?.touched)">
+      <div class="alert alert-danger col-4 my-2" *ngIf="logged == false">
         <p> No existe cuenta con tales credenciales</p>
       </div>
     </form>
