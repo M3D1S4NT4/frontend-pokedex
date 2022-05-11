@@ -24,4 +24,8 @@ export class UserService {
     getEmailByName(name: string): Observable<User> {
       return this.http.post<User>(`${this.apiServerUrl}/controller/getEmailByName`, name);
     }
+
+    deleteUser(name : string): Observable<boolean> {
+      return this.http.post<boolean>(`${this.apiServerUrl}/controller/deleteUser`, name);
+    }
 }

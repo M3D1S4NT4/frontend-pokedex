@@ -5,7 +5,7 @@ import { Pokemon } from '../pokedex/pokemon';
 export class User{
   private name: string;
   private password: string;
-  private email: string;
+  public email: string;
   public teams!: Pokemon[];
 
   constructor(userName: string, passwd: string, email: string) {
@@ -20,9 +20,5 @@ export class User{
 
   getPassword(){
     return this.password;
-  }
-
-  get Email(){
-    return this.email;
   }
 }
