@@ -36,4 +36,5 @@ private apiServerUrl= environment.apiBaseUrl;
   public getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(`${this.apiServerUrl}/controller/getItems`)
   }
+
 }

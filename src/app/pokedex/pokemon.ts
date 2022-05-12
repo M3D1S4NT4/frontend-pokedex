@@ -5,8 +5,8 @@ export interface Pokemon{
     type1: Type;
     type2: Type;
     species: string;
-    possibleAbilities: any[];
-    learnset: any[];
+    possibleAbilities: string[];
+    learnset: string[];
     height: string;
     weight: string;
     stats: any;

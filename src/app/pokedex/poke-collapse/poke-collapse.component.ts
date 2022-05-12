@@ -10,12 +10,15 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class PokeCollapseComponent implements OnInit {
   public pokedex: Pokemon[] | undefined;
+  public isCollapsed = true;
   @Output() selected = new EventEmitter<string>();
 
   constructor(private pokedexService: PokedexService){}
 
   ngOnInit() {
-    this.getPokedex();
+    if (this.pokedex == null) {
+      this.getPokedex();
+    }
   }
 
   public getPokedex(): void {
