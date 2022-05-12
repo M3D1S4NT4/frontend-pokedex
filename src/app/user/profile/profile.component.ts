@@ -13,8 +13,7 @@ import { User } from '../user';
 export class ProfileComponent implements OnInit {
   form! : FormGroup;
   nameFromCookie!: string;
-  emailFromDB: User | undefined;
-
+  emailDB!: string;
   constructor(private cookieService: CookieService, private router: Router,public userService: UserService, private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {
@@ -22,19 +21,19 @@ export class ProfileComponent implements OnInit {
       this.router.navigate(["/login"]);
     }
     this.userService.getEmailByName(this.nameFromCookie).subscribe( (response: User) => {
-      this.emailFromDB = response;
+      this.emailDB= response.email;
     }, (error) => {
       console.log("Error", error);
     });
     this.form=this.initForm();
-    console.log(this.emailFromDB);
+    console.log(this.emailDB);
   }
 
   initForm():FormGroup{
     return this.formBuilder.group({
       userName:[this.nameFromCookie, [Validators.required, Validators.minLength(4), Validators.maxLength(15)]],
       password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(30)]],
-      email: [this.emailFromDB?.email, [Validators.required, Validators.email]],
+      email: [this.emailDB, [Validators.required, Validators.email]],
     });
   }
 
@@ -44,7 +43,13 @@ export class ProfileComponent implements OnInit {
   }
 
   deleteAccount(): void{
-    this.userService.deleteUser(this.nameFromCookie);
+    this.userService.deleteUser(this.nameFromCookie).subscribe((data)=> {
+        console.log(data);
+        this.logOut();
+      }
+    , (error) => {
+        console.log("Error", error);
+    });
   }
 
   onSubmit() {
