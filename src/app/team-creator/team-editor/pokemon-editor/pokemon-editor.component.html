@@ -1,1 +1,58 @@
-<p>pokemon-editor works!</p>
+<body>
+<br>
+<div class="col bg-light">
+  <app-nav-bar></app-nav-bar>
+</div>
+
+<br>
+
+<div class="container bg-danger px-4 py-3 rounded-3 mt-4">
+  <div class="row">
+    <div class="bg-white p-3 rounded-3 col-3">
+      <label for="typeahead-focus">Search for an Pokémon:</label>
+      <br>
+      <input
+        id="typeahead-focus"
+        type="text"
+        class="form-control border border-2 border-dark col col-xl-3"
+        [(ngModel)]="model"
+        [ngbTypeahead]="searchPokemon"
+        [editable]="false"
+        (focus)="focus$.next($any($event).target.value)"
+        (click)="click$.next($any($event).target.value)"
+        #instance="ngbTypeahead"
+      />
+    </div>
+    <div class="bg-white p-3 rounded-3 col-3" *ngIf="model != null">
+      <label for="typeahead-focus-ability">Search for an ability:</label>
+      <br>
+      <input
+        id="typeahead-focus-ability"
+        type="text"
+        class="form-control border border-2 border-dark col col-xl-3"
+        [(ngModel)]="ability"
+        [ngbTypeahead]="searchAbilities"
+        [editable]="false"
+        (focus)="focusAbility$.next($any($event).target.value)"
+        (click)="clickAbility$.next($any($event).target.value)"
+        #instanceAbility="ngbTypeahead"
+      />
+    </div>
+    <div class="bg-white p-3 rounded-3 col-3" *ngIf="ability != null">
+      <label for="typeahead-focus-item">Search for an item:</label>
+      <br>
+      <input
+        id="typeahead-focus-item"
+        type="text"
+        class="form-control border border-2 border-dark col col-xl-3"
+        [(ngModel)]="item"
+        [ngbTypeahead]="searchItems"
+        [editable]="false"
+        (focus)="focusItem$.next($any($event).target.value)"
+        (click)="clickItem$.next($any($event).target.value)"
+        #instanceItem="ngbTypeahead"
+      />
+    </div>
+  </div>
+</div>
+</body>
