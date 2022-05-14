@@ -20,6 +20,7 @@
         [editable]="false"
         (focus)="focus$.next($any($event).target.value)"
         (click)="click$.next($any($event).target.value)"
+        (keydown.backspace)="deleteFlags()"
         #instance="ngbTypeahead"
       />
     </div>
@@ -39,6 +40,68 @@
       />
     </div>
     <div class="bg-white p-3 rounded-3 col-3" *ngIf="ability != null">
+      <div class="row">
+        <label for="typeahead-focus-move1">Search for a move:</label>
+        <br>
+        <input
+          id="typeahead-focus-move1"
+          type="text"
+          class="form-control border border-2 border-dark col col-xl-3"
+          [(ngModel)]="move1"
+          [ngbTypeahead]="searchMoves1"
+          [editable]="false"
+          (focus)="focusMove1$.next($any($event).target.value)"
+          (click)="clickMove1$.next($any($event).target.value)"
+          #instanceMove="ngbTypeahead"
+        />
+      </div>
+      <div class="row" *ngIf="move1 != null">
+        <label for="typeahead-focus-move2">Search for a move:</label>
+        <br>
+        <input
+          id="typeahead-focus-move2"
+          type="text"
+          class="form-control border border-2 border-dark col col-xl-3"
+          [(ngModel)]="move2"
+          [ngbTypeahead]="searchMoves2"
+          [editable]="false"
+          (focus)="focusMove2$.next($any($event).target.value)"
+          (click)="clickMove2$.next($any($event).target.value)"
+          #instanceMove="ngbTypeahead"
+        />
+      </div>
+      <div class="row" *ngIf="move2 != null">
+        <label for="typeahead-focus-move3">Search for a move:</label>
+        <br>
+        <input
+          id="typeahead-focus-move3"
+          type="text"
+          class="form-control border border-2 border-dark col col-xl-3"
+          [(ngModel)]="move3"
+          [ngbTypeahead]="searchMoves3"
+          [editable]="false"
+          (focus)="focusMove3$.next($any($event).target.value)"
+          (click)="clickMove3$.next($any($event).target.value)"
+          #instanceMove="ngbTypeahead"
+        />
+      </div>
+      <div class="row" *ngIf="move3 != null">
+        <label for="typeahead-focus-move4">Search for a move:</label>
+        <br>
+        <input
+          id="typeahead-focus-move4"
+          type="text"
+          class="form-control border border-2 border-dark col col-xl-3"
+          [(ngModel)]="move4"
+          [ngbTypeahead]="searchMoves4"
+          [editable]="false"
+          (focus)="focusMove4$.next($any($event).target.value)"
+          (click)="clickMove4$.next($any($event).target.value)"
+          #instanceMove="ngbTypeahead"
+        />
+      </div>
+    </div>
+    <div class="bg-white p-3 rounded-3 col-3" *ngIf="move4 != null">
       <label for="typeahead-focus-item">Search for an item:</label>
       <br>
       <input
